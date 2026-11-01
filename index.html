@@ -878,10 +878,23 @@ function openModal(id){
   document.getElementById('modalName').textContent = p.name;
   document.getElementById('modalSub').textContent = p.sub;
   // price hidden — contact store
-  document.getElementById('modalSpecs').innerHTML =
-    p.specs.map(s=>`<div class="spec-item"><div class="spec-lbl">${s.l}</div><div class="spec-val">${s.v}</div></div>`).join('');
-  document.getElementById('modalFeat').innerHTML =
-    `<h4>จุดเด่น</h4><ul class="feature-list">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>`;
+  // Build specs — products use either p.specs (array) or p.spec (object)
+  let specsHtml = '';
+  if(p.specs && p.specs.length){
+    specsHtml = p.specs.map(s=>`<div class="spec-item"><div class="spec-lbl">${s.l}</div><div class="spec-val">${s.v}</div></div>`).join('');
+  } else if(p.spec){
+    const labels = {system:'ระบบ',profile:'โปรไฟล์',glass:'กระจก',lock:'ล็อก',finish:'สี/ผิว'};
+    specsHtml = Object.entries(p.spec).map(([k,v])=>`<div class="spec-item"><div class="spec-lbl">${labels[k]||k}</div><div class="spec-val">${v}</div></div>`).join('');
+  }
+  document.getElementById('modalSpecs').innerHTML = specsHtml;
+  // Build features — products use either p.features (array) or p.desc (string)
+  let featHtml = '';
+  if(p.features && p.features.length){
+    featHtml = `<h4>จุดเด่น</h4><ul class="feature-list">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>`;
+  } else if(p.desc){
+    featHtml = `<h4>รายละเอียด</h4><p style="font-size:14px;color:var(--fg);line-height:1.7;">${p.desc}</p>`;
+  }
+  document.getElementById('modalFeat').innerHTML = featHtml;
   const modal = document.getElementById('modal');
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
