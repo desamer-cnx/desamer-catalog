@@ -1,8 +1,14 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ดีเสมอ อลูมิเนียม — แคทตาล็อกสินค้า</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap">
 <style>
+[hidden]{display:none!important}
 :root {
   --bg:#F7F5F1; --surface:#FFFFFF; --surface-2:#F0EDE7;
   --fg:#1C1917; --fg-muted:#6B6660;
@@ -500,7 +506,7 @@ const products = [
   },
   {
     id:4, cat:'sliding4', img:'p04',
-    name:'ประตูบานเลื่อน 4 ราง กระจกใส Slim Frame',
+    name:'ประตูบานเลื่อน 3 ราง กระจกใส',
     sub:'รุ่น MT-400S ลายไม้วอลนัท | Slim Line | กระจกใส หนา 6 mm.',
     priceFrom:49500,
     specs:[
@@ -514,7 +520,7 @@ const products = [
   // ── บานเลื่อนแบ่ง 3 ช่อง ──
   {
     id:5, cat:'sliding3', img:'p05',
-    name:'ประตูบานเลื่อน 3 ราง กระจกใส',
+    name:'ประตูบานเลื่อน 3 ราง ลูกฟูกครึ่งแผ่นกระจกใสตาราง',
     sub:'รุ่น MT-300S ลายไม้วอลนัท | Full Glass | กระจกใส หนา 6 mm.',
     priceFrom:30500,
     specs:[
@@ -540,7 +546,7 @@ const products = [
   },
   {
     id:7, cat:'sliding3', img:'p07',
-    name:'ประตูบานเลื่อน 3 ราง ครึ่งกระจกครึ่งแผ่น',
+    name:'ประตูบานเลื่อน สลับ ลูกฟูกแผ่นเรียบ',
     sub:'รุ่น MT-300H ลายไม้วอลนัท | Half Grid | กระจกใส หนา 6 mm.',
     priceFrom:31500,
     specs:[
@@ -606,7 +612,7 @@ const products = [
   },
   {
     id:12, cat:'sliding2', img:'p12',
-    name:'ประตูบานเลื่อน 2 ราง บานข้างกระจกแนวตั้ง',
+    name:'ประตูบานเลื่อนแบ่ง 4 ช่อง กระจกใส',
     sub:'รุ่น S-200SL ลายไม้วอลนัท | Side Glass | กระจกใส หนา 6 mm.',
     priceFrom:27000,
     specs:[
@@ -906,3 +912,5 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 // ── INIT ──
 renderCards(products);
 </script>
+</body>
+</html>
